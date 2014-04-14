@@ -1,22 +1,28 @@
-AoSIRCLogParser
-===============
-Program created by "Grandy" TheGrandmaster for Ace of Spades Beta
-http://www.buildandshoot.com
+AoSIRCLogParser v3.0
+====================
+Program created by "Grandy" TheGrandmaster for Ace of Spades Beta, which can be found at http://www.buildandshoot.com
 
 Uses current IRC output of the match plugin for the game server and converts it into detailed statistics.
 Debug parsing lines are enabled by default but can be toggled.
 
-Written in PHP, no database connection needed.
-Feel free to contact through github.
+Written in PHP, no database connection needed, just need a server that can run PHP (see below for information about locally hosting it for personal use).
 
+This is the third iteration of the program, the first of which was created roughly two years ago with the rising number of competitive matches for Ace of Spades Beta. The second iteration fixed up errors caused by an unknowing topo updating the IRC log output for the match script. I then lost the second version and upon being summoned to produce stats again, I rewrote it for this, version 3.0, with a view to making the program public.
 
+So, in light of this, feel free to use the program and/or its code for non-profit/personal use; I am happy for people to fork the project and modify/distribute the code as much as they like, so long as attribution is retained in the code header comments, and the code is not used in any form by commercial project(s). 
+
+I hope people find use in it, please do post any bugs you find in the issues section and feel free to contact me through github if you have any questions about the program or the code itself.
+
+Regards,
+-Grandy
+15/04/2014
 
 Technical Details
-=========
+=================
 The program is split into two parts (currently), the main part (logparser.php) and the player part (player.php).
 
 player.php:
--------------
+-----------
 This holds the Player class and all of its storage and functions; most of these functions just alter the storage, adding a kill or a death, incrementing counters for intel touches/caps etc. There is also a method to print out the object in a pretty format, which is used later on when we have finished parsing.
 
 logparser.php:
@@ -33,7 +39,7 @@ Once the parser has finished looping over the file, all of the found Players in 
 
 
 Running the program
-===========
+===================
 To develop and run the program myself, I have been using http://www.wampserver.com/en/
 
 1. Download and install the relevant WAMP server: http://www.wampserver.com/en/#download-wrapper
