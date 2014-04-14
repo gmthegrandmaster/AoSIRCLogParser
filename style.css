@@ -1,0 +1,87 @@
+body{
+
+	font-family: Calibri;
+}
+
+h1, h2, h3{
+	margin: 0;
+	padding: 0;
+}
+
+h4{
+	font-family: Consolas, Courier New;
+	font-weight: Bold;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+.t_header{
+	font-family: Verdana, Calibri;
+	font-weight: Bold;
+	background-color: #a2a2a2;
+	color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 2px 5px 2px 5px;
+}
+
+.t_main{
+	border: 1px solid #d6d6d6;
+	font-family: Verdana, Calibri;
+	color: #000000;
+	padding: 2px 5px 2px 5px;
+}
+
+.t_total{
+	border: 1px solid #EE0000;
+	font-family: Verdana, Calibri;
+	color: #000000;
+	padding: 2px 5px 2px 5px;
+}
+
+.bot_name_gen{
+	color: #AAAAAA;
+	font-style: italic;
+}
+
+.box{
+	display: inline-block;
+	width: 300px; 
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.line_bot{
+	color: #999999;
+}
+
+.line_irc{
+	color: #00FF00;
+}
+
+.line_kill{
+	color: #FF0000;
+}
+
+.line_touch{
+	color: #000000;
+	background-color: #AAAAAA;
+}
+
+.line_capture{
+	color: #FF0000;
+	background-color: #000000;
+}
+
+.line_unknown{
+	color: #FFFF00;
+	background-color: #FF0000;
+}
+
+.verbose_box{
+	border: 2px solid black;
+	height: 300px;
+	width: 825px;
+	word-wrap: break-word;
+	overflow: auto;
+}
