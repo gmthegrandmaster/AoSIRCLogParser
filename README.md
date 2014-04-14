@@ -29,3 +29,16 @@ The regex definitions can be found near the top of the file as $PATTERN_x, and e
 Once the meaning of the line is found, it then calls the appropriate processing method for that action and passes in the data (e.g. processKill($line)). These methods then create or call the relevant Player objects and alter the appropriate values in the Player's storage.
 
 Once the parser has finished looping over the file, all of the found Players in the $players array are looped through, and their display method is called, which produces the end output.
+
+
+
+Running the program
+===========
+To develop and run the program myself, I have been using http://www.wampserver.com/en/
+
+1. Download and install the relevant WAMP server: http://www.wampserver.com/en/#download-wrapper
+2. Navigate to the insallation directory (usually c:/wamp), find the /www/ folder and extract the downloaded project into a subfolder (e.g. /www/IRCLogParser/)
+3. Load up WAMP - its icon should cycle through red, amber then green (Skype can interfere with it, so if it doesn't go green, try closing skype - you can re-open it after the server has loaded).
+4. Go to your web browser and navigate to http://localhost/FOLDERNAME/logparser.php
+5. ???
+6. Profit
