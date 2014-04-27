@@ -3,12 +3,10 @@
 	/*
 	 * 	Ace of Spades Beta - IRC log file parser
 	 * 	Made by "Grandy" TheGrandmaster
-	 * 	Last updated 13/04/2014 04:09
+	 * 	Last updated 27/04/2014 19:57
 	 *
 	 * 	logparser.php - centre for parsing the log and tracking players
 	 *
-	 * 	TODO:
-	 *		- Pretty it up
 	 */
 
 	// PHP file containing the player class
@@ -18,7 +16,7 @@
 	$players = array();
 	$num_players = 0;
 
-	$verbose = true;	// Sets whether debug output is enabled
+	$verbose = false;	// Sets whether debug output is enabled
 
 	// Delimeters, used for substringing and patterns
 	$TEXT_KILL_MSG = "killed";
@@ -27,7 +25,7 @@
 	$TEXT_CAPTURE = "captured the";
 
 	// Global vars
-	$PATTERN_TIMESTAMP = "/^\[[0-9]{2}(:)[0-9]{2}\].*$/";			// [hh:mm]
+	$PATTERN_TIMESTAMP = "/\[[0-9]{2}(:)[0-9]{2}\].*$/";		// [hh:mm] 		OR 		07[hh:mm]
 	$PATTERN_KILL = "/^.{0,15}( ".$TEXT_KILL_MSG." ).{0,15}(!)$/";	// [13:58] <BotName> Player1 killed Player2!
 	$PATTERN_NOTIFICATION = "/^(\*).*$/";							// [14:18] <BotName> * 18 minutes, 59 seconds remaining.
 	$PATTERN_TOUCH = "/^.{0,15}( ".$TEXT_TOUCH." ).{0,15}( flag in ).{2}(!)$/";	// [13:58] <BotName> Player3 took the TeamName flag in A1!
@@ -144,16 +142,20 @@ if(isset($_POST['Submit'])){
 		global $verbose;
 
 		// The killer is the section prior to the occurance of the kill message delim
-		$killer = trim(strstr($line, $TEXT_KILL_MSG, true));
+		// Use an untrimmed version while we substr the line
+		$killer = strstr($line, $TEXT_KILL_MSG, true);
 
 		// The victim is the part of the message beyond the kill message delim
 		$victim = trim(
-					substr(	$line, 										// Source
-							strlen($killer)+1+strlen($TEXT_KILL_MSG), 	// Begin (len of killer + space + len of delim)
+					substr(	$line, 										// Source String
+							strlen($killer)+strlen($TEXT_KILL_MSG), 	// Begin at index [len of killer name (and space) + len of delim]
 							strlen($line)								// End 
 							)	
 						);
 		$victim = substr($victim, 0, strlen($victim)-1);
+
+		// Trim the killer name after getting the other information for proper output
+		$killer = trim($killer);
 		
 		// Check if the killer is being tracked
 		if(!hasPlayer($killer)){
